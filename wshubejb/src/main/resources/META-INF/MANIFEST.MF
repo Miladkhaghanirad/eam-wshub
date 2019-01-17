@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Dependencies: org.apache.cxf, org.apache.cxf.impl, com.fasterxml.jackson.core, com.fasterxml.jackson.core.jackson-databind, com.fasterxml.jackson.core.jackson-annotations
