@@ -2,10 +2,10 @@
 .settings/
 .project
 .DS_Store
-wshub.iml
 
 #IntelliJ IDEA
 .idea
+*.iml
 
 #EAR
 wshubear/.settings/
