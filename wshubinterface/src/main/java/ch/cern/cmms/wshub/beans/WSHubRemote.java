@@ -90,11 +90,6 @@ public interface WSHubRemote {
 	Comment[] readComments(InforContext inforContext, Comment commentParam) throws InforException;
 
 	//
-	// BASE
-	//
-	EAMUser readEAMUser(InforContext inforContext, String userCode) throws InforException;
-
-	//
 	// MATERIAL - CRUD
 	//
 	String createPart(InforContext inforContext, Part partParam) throws InforException;
@@ -130,12 +125,6 @@ public interface WSHubRemote {
 
 	@WebResult(name = "status")
 	String removeEquipmentFromStructure(InforContext inforContext, EquipmentStructure equipmentStructure) throws InforException;
-
-	//
-	// REPLACE EQUIPMENT
-	//
-
-	String replaceEquipment(InforContext inforContext, EquipmentReplacement replacement) throws InforException;
 	//
 	// METER READING
 	//
@@ -161,12 +150,6 @@ public interface WSHubRemote {
 	String updateCaseTask(InforContext inforContext, InforCaseTask caseTaskMT) throws InforException;
 
 	String deleteCaseTask(InforContext inforContext, String caseTaskID) throws InforException;
-
-	List<InforCaseTask> readCaseTasks(InforContext inforContext, String caseID) throws InforException;
-	//
-	// LOGIN
-	//
-	String login(InforContext inforContext, String data) throws InforException;
 
 	//
 	// INFOR DOCUMENTS

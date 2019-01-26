@@ -5,13 +5,9 @@ import ch.cern.eam.wshub.core.services.entities.*;
 import ch.cern.eam.wshub.core.services.equipment.entities.*;
 import ch.cern.eam.wshub.core.services.material.entities.*;
 import ch.cern.eam.wshub.core.services.workorders.entities.*;
-import ch.cern.cmms.wshub.base.Base;
 import ch.cern.eam.wshub.core.services.entities.BatchResponse;
 import ch.cern.cmms.wshub.entities.AsyncExecution;
 import ch.cern.eam.wshub.core.services.entities.CustomField;
-import ch.cern.cmms.wshub.equipment.EquipmentHierarchy;
-import ch.cern.cmms.wshub.equipment.EquipmentReplacementService;
-import ch.cern.cmms.wshub.equipment.entities.*;
 import ch.cern.eam.wshub.core.services.equipment.entities.Equipment;
 import ch.cern.eam.wshub.core.services.grids.entities.*;
 import ch.cern.eam.wshub.core.services.documents.entities.InforDocument;
@@ -46,16 +42,9 @@ import java.util.*;
 public class WSHubBean implements WSHub, WSHubRemote {
 
 	@Inject
-	private EquipmentHierarchy equipmentHierarchy;
-	@Inject
-	private Base base;
-	@Inject
 	private CaseTasks caseTasks;
 	@Inject
 	private MessageSender messageSender;
-	@Inject
-	private EquipmentReplacementService equipmentReplacementService;
-
     @Inject
 	private InforClient inforClient;
 
@@ -200,12 +189,6 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	public String deleteCaseTask(InforContext inforContext, String caseTaskID) throws InforException {
 		return inforClient.getCaseTaskService().deleteCaseTask(buildInforContext(inforContext), caseTaskID);
 	}
-
-	@Override
-	public List<InforCaseTask> readCaseTasks(InforContext inforContext, String caseID) throws InforException {
-		return caseTasks.readCaseTasks(caseID);
-	}
-
 
 	//
 	// WORK ORDERS MISC
@@ -414,15 +397,6 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	// EQUIPMENT OTHER
 	//
-	@Override
-	public String replaceEquipment(InforContext inforContext, EquipmentReplacement replacement) throws InforException {
-		return equipmentReplacementService.replaceEquipment(buildInforContext(inforContext), replacement);
-	}
-
-	@Override
-	public Graph readEquipmentGraph(InforContext inforContext, EquipmentGraphRequest graph) throws InforException {
-		return equipmentHierarchy.readEquipmentGraph(graph);
-	}
 
 	@Override
 	public String createEquipmentCampaign(InforContext inforContext, EquipmentCampaign equipmentCampaign) throws InforException {
@@ -554,18 +528,13 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	//
 	@Override
-	public String login(InforContext inforContext, String data) throws InforException {
-		return base.login(buildInforContext(inforContext));
+	public String login(InforContext inforContext) throws InforException {
+		return inforClient.getUserSetupService().login(buildInforContext(inforContext));
 	}
 
 	@Override
 	public CustomField[] readMTCustomFields(InforContext inforContext, String entity, String inforClass) throws InforException {
 		return inforClient.getTools().getCustomFieldsTools().getMTCustomFields(buildInforContext(inforContext), entity, inforClass);
-	}
-
-	@Override
-	public EAMUser readEAMUser(InforContext inforContext, String userCode) throws InforException {
-		return base.getUserInfo(userCode);
 	}
 
 	//

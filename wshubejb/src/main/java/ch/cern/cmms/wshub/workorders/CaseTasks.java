@@ -22,15 +22,5 @@ public class CaseTasks {
 	private InforClient inforClient;
 	@Inject
 	private ApplicationData applicationData;
-	@PersistenceContext
-	private EntityManager entityManager;
 
-
-	public List<InforCaseTask> readCaseTasks(String caseID) throws InforException {
-		if (caseID.isEmpty()) {
-			throw inforClient.getTools().generateFault("No caseID given.");
-		}
-		return entityManager.createNamedQuery(InforCaseTask.GET_TASKS_FOR_CASE, InforCaseTask.class)
-				.setParameter("caseID", caseID).getResultList();
-	}
 }

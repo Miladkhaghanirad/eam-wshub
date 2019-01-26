@@ -13,7 +13,6 @@ import ch.cern.eam.wshub.core.services.workorders.entities.*;
 import ch.cern.eam.wshub.core.services.entities.BatchResponse;
 import ch.cern.cmms.wshub.entities.AsyncExecution;
 import ch.cern.eam.wshub.core.services.entities.CustomField;
-import ch.cern.cmms.wshub.equipment.entities.Graph;
 import ch.cern.eam.wshub.core.services.grids.entities.GridDDSpyFieldsResult;
 import ch.cern.eam.wshub.core.services.grids.entities.GridDataspy;
 import ch.cern.eam.wshub.core.services.grids.entities.GridMetadataRequestResult;
@@ -41,14 +40,6 @@ import ch.cern.eam.wshub.core.services.workorders.entities.WorkOrderActivityChec
 @Local
 @WebService(targetNamespace = "http://cern.ch/cmms/infor/wshub", name = "InforWSPortType")
 public interface WSHub {
-
-	//
-	//
-	//
-	EAMUser readEAMUser(
-			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "userCode")String userCode)
-		throws InforException;
 
 	//
 	// DOCUMENTS
@@ -229,15 +220,6 @@ public interface WSHub {
 			@WebParam(name = "caseTaskID") String caseTaskID)
 			throws InforException;
 
-	@WebResult(name = "caseTasks")
-	List<InforCaseTask> readCaseTasks(
-			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "caseID") String caseID)
-			throws InforException;
-
-
-
-
 
 	//
 	//
@@ -342,12 +324,6 @@ public interface WSHub {
 			@WebParam(name = "equipment") List<Equipment> workorder)
 			throws InforException;
 
-
-	String replaceEquipment(
-			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "replacement") EquipmentReplacement replacement)
-			throws InforException;
-
 	@WebResult(name = "linearReferenceID")
 	String createEquipmentLinearReference(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
@@ -417,12 +393,6 @@ public interface WSHub {
 	String updateEquipmentDepreciation(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
 			@WebParam(name = "equipmentDepreciation") EquipmentDepreciation equipmentDepreciation)
-			throws InforException;
-
-	@WebResult(name = "equipmentGraph")
-	Graph readEquipmentGraph(
-			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "equipmentGraphRequest") EquipmentGraphRequest graph)
 			throws InforException;
 
 	String createEquipmentCampaign(
@@ -539,11 +509,6 @@ public interface WSHub {
 	//
 	// Base
 	//
-	@WebResult(name = "loginStatus")
-	String login(
-			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "data") String datacontext)
-			throws InforException;
 
 	@WebResult(name = "customFields")
 	GridRequestResult getGridResult(
@@ -620,6 +585,11 @@ public interface WSHub {
 	//
 	// EMPLOYEES
 	//
+
+	@WebResult(name = "sessionID")
+	String login(
+			@WebParam(name = "inforContext", header = true) InforContext inforContext)
+			throws InforException;
 
 	@WebResult(name = "employee")
 	Employee readEmployee(
