@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>ch.cern.eam</groupId>
 		<artifactId>eam-wshub</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>eam-wshub-ear</artifactId>
@@ -14,26 +14,20 @@
 		<dependency>
 			<groupId>ch.cern.eam</groupId>
 			<artifactId>eam-wshub-ejb</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>ch.cern.eam</groupId>
-			<artifactId>eam-wshub-interface</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>1.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>ch.cern.eam</groupId>
 			<artifactId>eam-wshub-rest</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>1.0.1-SNAPSHOT</version>
 			<type>war</type>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>ch.cern.eam</groupId>
 			<artifactId>eam-wshub-core</artifactId>
-			<version>11.4-0-SNAPSHOT</version>
+			<version>11.4-1-SNAPSHOT</version>
 			<scope>compile</scope>
 			<exclusions>
 				<exclusion>
@@ -63,11 +57,6 @@
 					<includeLibInApplicationXml>true</includeLibInApplicationXml>
 					<displayName>wshub</displayName>
 					<modules>
-						<jarModule>
-							<groupId>ch.cern.eam</groupId>
-							<artifactId>eam-wshub-interface</artifactId>
-							<bundleDir>/lib</bundleDir>
-						</jarModule>
 						<webModule>
 							<groupId>ch.cern.eam</groupId>
 							<artifactId>eam-wshub-rest</artifactId>

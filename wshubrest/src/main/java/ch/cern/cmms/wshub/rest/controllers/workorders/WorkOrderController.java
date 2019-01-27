@@ -23,6 +23,7 @@ public class WorkOrderController extends WSHubController {
     @Path("/{number}")
     @Produces("application/json")
     public Response readWorkOrder(@PathParam("number") String number) {
+        System.out.println("read wo");
         try {
             return ok(inforClient.getWorkOrderService().readWorkOrder(authentication.getInforContext(), number));
         } catch (InforException e) {

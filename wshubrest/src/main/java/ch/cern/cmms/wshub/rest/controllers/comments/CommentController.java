@@ -19,11 +19,14 @@ public class CommentController extends WSHubController {
     private InforClient inforClient;
 
     @POST
-    @Path("/")
+    @Path("/{entityCode}/{entityKeyCode}")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response createComment(Comment comment) {
+    public Response createComment(@PathParam("entityCode") String entityCode,
+                                  @PathParam("entityKeyCode") String entityKeyCode, Comment comment) {
         try {
+            comment.setEntityCode(entityCode);
+            comment.setEntityKeyCode(entityKeyCode);
             return ok(inforClient.getCommentService().createComment(authentication.getInforContext(), comment));
         } catch (InforException e) {
             return badRequest(e);
@@ -47,11 +50,14 @@ public class CommentController extends WSHubController {
     }
 
     @PUT
-    @Path("/")
+    @Path("/{entityCode}/{entityKeyCode}")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response updatePart(Comment comment) {
+    public Response updateComment(@PathParam("entityCode") String entityCode,
+                                  @PathParam("entityKeyCode") String entityKeyCode, Comment comment) {
         try {
+            comment.setEntityCode(entityCode);
+            comment.setEntityKeyCode(entityKeyCode);
             return ok(inforClient.getCommentService().updateComment(authentication.getInforContext(), comment));
         } catch (InforException e) {
             return badRequest(e);

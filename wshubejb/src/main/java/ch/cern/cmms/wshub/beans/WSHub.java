@@ -7,6 +7,7 @@ import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
+import ch.cern.eam.wshub.core.client.InforContext;
 import ch.cern.eam.wshub.core.services.entities.*;
 import ch.cern.eam.wshub.core.services.equipment.entities.*;
 import ch.cern.eam.wshub.core.services.workorders.entities.*;
@@ -147,12 +148,22 @@ public interface WSHub {
 			@WebParam(name = "taskPlan") TaskPlan taskPlan)
 			throws InforException;
 
+	WorkOrderActivityCheckList[] readWorkOrderChecklists(
+			@WebParam(name = "inforContext", header = true) InforContext inforContext,
+			@WebParam(name = "workOrderChecklist") Activity activity)
+			throws InforException;
+
 	String updateWorkOrderChecklists(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
 			@WebParam(name = "workOrderChecklist") WorkOrderActivityCheckList WorkOrderChecklist)
 			throws InforException;
 
 	String createRouteEquipment(
+			@WebParam(name = "inforContext", header = true) InforContext inforContext,
+			@WebParam(name = "routeEquipment") RouteEquipment routeEquipment)
+			throws InforException;
+
+	String deleteRouteEquipment(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
 			@WebParam(name = "routeEquipment") RouteEquipment routeEquipment)
 			throws InforException;
@@ -299,12 +310,12 @@ public interface WSHub {
 
 	Equipment readEquipment(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "equipmentCode") String equipmentCode)
+			@WebParam(name = "equipment") Equipment equipment)
 			throws InforException;
 
 	String deleteEquipment(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "equipmentCode") String equipmentCode)
+			@WebParam(name = "equipment") Equipment equipment)
 			throws InforException;
 
 	@WebResult(name = "equipmentCode")
@@ -316,12 +327,12 @@ public interface WSHub {
 
 	BatchResponse<Equipment> readEquipmentBatch(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "equipmentCode", header = false) List<String> number)
+			@WebParam(name = "equipmentList", header = false) List<Equipment> equipmentList)
 			throws InforException;
 
 	BatchResponse<String> updateEquipmentBatch(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "equipment") List<Equipment> workorder)
+			@WebParam(name = "equipmentList") List<Equipment> equipmentList)
 			throws InforException;
 
 	@WebResult(name = "linearReferenceID")

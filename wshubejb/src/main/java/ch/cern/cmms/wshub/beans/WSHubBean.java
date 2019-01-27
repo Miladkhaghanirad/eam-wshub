@@ -1,6 +1,7 @@
 package ch.cern.cmms.wshub.beans;
 
 import ch.cern.eam.wshub.core.client.InforClient;
+import ch.cern.eam.wshub.core.client.InforContext;
 import ch.cern.eam.wshub.core.services.entities.*;
 import ch.cern.eam.wshub.core.services.equipment.entities.*;
 import ch.cern.eam.wshub.core.services.material.entities.*;
@@ -39,7 +40,7 @@ import java.util.*;
 @HandlerChain(file = "/handlers.xml")
 @org.apache.cxf.interceptor.InInterceptors(interceptors = {"ch.cern.cmms.wshub.interceptors.SOAPActionCXFInInterceptor" })
 @WebService(name = "InforWSPortType", portName = "InforWSPort", serviceName = "InforWSService", targetNamespace = "http://cern.ch/cmms/infor/wshub", endpointInterface = "ch.cern.cmms.wshub.beans.WSHub")
-public class WSHubBean implements WSHub, WSHubRemote {
+public class WSHubBean implements WSHub {
 
 	@Inject
 	private CaseTasks caseTasks;
@@ -47,62 +48,53 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	private MessageSender messageSender;
     @Inject
 	private InforClient inforClient;
-
-    // Build Infor Context such as expected by WS Hub Core
-    private ch.cern.eam.wshub.core.client.InforContext buildInforContext(InforContext context) {
-    	return new ch.cern.eam.wshub.core.client.InforContext.Builder()
-				.withCredentials(context.getCredentials())
-				.withOrganizationCode(context.getOrganizationCode())
-				.withSessionID(context.getSessionID())
-				.build();
-	}
-
+    
 	//
 	// WORK ORDERS CRUD
 	//
 	@Override
 	public WorkOrder readWorkOrder(InforContext inforContext, String number) throws InforException {
-		return inforClient.getWorkOrderService().readWorkOrder(buildInforContext(inforContext), number);
+		return inforClient.getWorkOrderService().readWorkOrder(inforContext, number);
 	}
 
 	@Override
 	public WorkOrder readStandardWorkOrder(InforContext inforContext, WorkOrder workOrderParam) throws InforException {
-		return inforClient.getWorkOrderService().readStandardWorkOrder(buildInforContext(inforContext), workOrderParam);
+		return inforClient.getWorkOrderService().readStandardWorkOrder(inforContext, workOrderParam);
 	}
 
 	@Override
 	public String createWorkOrder(InforContext inforContext, WorkOrder workOrderParam) throws InforException {
-		return inforClient.getWorkOrderService().createWorkOrder(buildInforContext(inforContext), workOrderParam);
+		return inforClient.getWorkOrderService().createWorkOrder(inforContext, workOrderParam);
 	}
 
 	@Override
 	public BatchResponse<String> createWorkOrderBatch(InforContext inforContext, List<WorkOrder> workOrderParam)  throws InforException {
-		return inforClient.getWorkOrderService().createWorkOrderBatch(buildInforContext(inforContext), workOrderParam);
+		return inforClient.getWorkOrderService().createWorkOrderBatch(inforContext, workOrderParam);
 	}
 
 	@Override
 	public BatchResponse<WorkOrder> readWorkOrderBatch(InforContext inforContext, List<String> numbers) {
-		return inforClient.getWorkOrderService().readWorkOrderBatch(buildInforContext(inforContext), numbers);
+		return inforClient.getWorkOrderService().readWorkOrderBatch(inforContext, numbers);
 	}
 
 	@Override
 	public BatchResponse<String> updateWorkOrderBatch(InforContext inforContext, List<WorkOrder> workOrderParam) throws InforException {
-		return inforClient.getWorkOrderService().updateWorkOrderBatch(buildInforContext(inforContext), workOrderParam);
+		return inforClient.getWorkOrderService().updateWorkOrderBatch(inforContext, workOrderParam);
 	}
 
 	@Override
 	public String updateWorkOrder(InforContext inforContext, WorkOrder workorderParam) throws InforException {
-		return inforClient.getWorkOrderService().updateWorkOrder(buildInforContext(inforContext), workorderParam);
+		return inforClient.getWorkOrderService().updateWorkOrder(inforContext, workorderParam);
 	}
 
 	@Override
 	public String deleteWorkOrder(InforContext inforContext, String workOrderNumber) throws InforException {
-		return inforClient.getWorkOrderService().deleteWorkOrder(buildInforContext(inforContext), workOrderNumber);
+		return inforClient.getWorkOrderService().deleteWorkOrder(inforContext, workOrderNumber);
 	}
 
 	@Override
 	public String updateWOStatus(InforContext inforContext, WorkOrder workOrder) throws InforException {
-		return inforClient.getWorkOrderService().changeWOStatus(buildInforContext(inforContext), workOrder.getNumber(), workOrder.getStatusCode());
+		return inforClient.getWorkOrderService().updateWorkOrderStatus(inforContext, workOrder.getNumber(), workOrder.getStatusCode());
 	}
 
 	//
@@ -110,17 +102,17 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String createActivity(InforContext inforContext, Activity activityParam) throws InforException {
-		return inforClient.getLaborBookingService().createActivity(buildInforContext(inforContext), activityParam);
+		return inforClient.getLaborBookingService().createActivity(inforContext, activityParam);
 	}
 
 	@Override
 	public String updateActivity(InforContext inforContext, Activity activityParam) throws InforException {
-		return inforClient.getLaborBookingService().updateActivity(buildInforContext(inforContext), activityParam);
+		return inforClient.getLaborBookingService().updateActivity(inforContext, activityParam);
 	}
 
 	@Override
 	public Activity[] readActivities(InforContext inforContext, String workOrderNumber) throws InforException {
-		return inforClient.getLaborBookingService().readActivities(buildInforContext(inforContext), workOrderNumber);
+		return inforClient.getLaborBookingService().readActivities(inforContext, workOrderNumber);
 	}
 
 	//
@@ -128,12 +120,12 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public LaborBooking[] readBookedLabor(InforContext inforContext, String workOrderNumber) throws InforException {
-		return inforClient.getLaborBookingService().readLaborBookings(buildInforContext(inforContext), workOrderNumber);
+		return inforClient.getLaborBookingService().readLaborBookings(inforContext, workOrderNumber);
 	}
 
 	@Override
 	public String createLaborBooking(InforContext inforContext, LaborBooking laborBookingParam) throws InforException {
-		return inforClient.getLaborBookingService().createLaborBooking(buildInforContext(inforContext), laborBookingParam);
+		return inforClient.getLaborBookingService().createLaborBooking(inforContext, laborBookingParam);
 	}
 
 	//
@@ -141,7 +133,7 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String updatePurchaseOrder(InforContext inforContext, PurchaseOrder purchaseOrderParam) throws InforException {
-		return  inforClient.getPurchaseOrdersService().updatePurchaseOrder(buildInforContext(inforContext), purchaseOrderParam);
+		return  inforClient.getPurchaseOrdersService().updatePurchaseOrder(inforContext, purchaseOrderParam);
 	}
 
 	//
@@ -149,22 +141,22 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public InforCase readCase(InforContext inforContext, String caseID) throws InforException {
-		return inforClient.getCaseService().readCase(buildInforContext(inforContext), caseID);
+		return inforClient.getCaseService().readCase(inforContext, caseID);
 	}
 
 	@Override
 	public String createCase(InforContext inforContext, InforCase caseMT) throws InforException {
-		return inforClient.getCaseService().createCase(buildInforContext(inforContext), caseMT);
+		return inforClient.getCaseService().createCase(inforContext, caseMT);
 	}
 
 	@Override
 	public String updateCase(InforContext inforContext, InforCase caseMT) throws InforException {
-		return inforClient.getCaseService().updateCase(buildInforContext(inforContext), caseMT);
+		return inforClient.getCaseService().updateCase(inforContext, caseMT);
 	}
 
 	@Override
 	public String deleteCase(InforContext inforContext, String caseID) throws InforException {
-		return inforClient.getCaseService().deleteCase(buildInforContext(inforContext), caseID);
+		return inforClient.getCaseService().deleteCase(inforContext, caseID);
 	}
 
 	//
@@ -172,22 +164,22 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public InforCaseTask readCaseTask(InforContext inforContext, String caseTaskID) throws InforException {
-		return inforClient.getCaseTaskService().readCaseTask(buildInforContext(inforContext), caseTaskID);
+		return inforClient.getCaseTaskService().readCaseTask(inforContext, caseTaskID);
 	}
 
 	@Override
 	public String createCaseTask(InforContext inforContext, InforCaseTask caseTaskMT) throws InforException {
-		return inforClient.getCaseTaskService().createCaseTask(buildInforContext(inforContext), caseTaskMT);
+		return inforClient.getCaseTaskService().createCaseTask(inforContext, caseTaskMT);
 	}
 
 	@Override
 	public String updateCaseTask(InforContext inforContext, InforCaseTask caseTaskMT) throws InforException {
-		return inforClient.getCaseTaskService().updateCaseTask(buildInforContext(inforContext), caseTaskMT);
+		return inforClient.getCaseTaskService().updateCaseTask(inforContext, caseTaskMT);
 	}
 
 	@Override
 	public String deleteCaseTask(InforContext inforContext, String caseTaskID) throws InforException {
-		return inforClient.getCaseTaskService().deleteCaseTask(buildInforContext(inforContext), caseTaskID);
+		return inforClient.getCaseTaskService().deleteCaseTask(inforContext, caseTaskID);
 	}
 
 	//
@@ -195,52 +187,52 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String createMeterReading(InforContext inforContext, MeterReading meterReading) throws InforException {
-		return inforClient.getWorkOrderMiscService().createMeterReading(buildInforContext(inforContext), meterReading);
+		return inforClient.getWorkOrderMiscService().createMeterReading(inforContext, meterReading);
 	}
 
 	@Override
 	public String createWorkOrderAdditionalCost(InforContext inforContext, WorkOrderAdditionalCosts workOrderAddCostsParam) throws InforException {
-		return inforClient.getWorkOrderMiscService().createWorkOrderAdditionalCost(buildInforContext(inforContext), workOrderAddCostsParam);
+		return inforClient.getWorkOrderMiscService().createWorkOrderAdditionalCost(inforContext, workOrderAddCostsParam);
 	}
 
 	@Override
 	public String addWorkOrderPart(InforContext inforContext, WorkOrderPart workOrderPart) throws InforException {
-		return inforClient.getWorkOrderMiscService().addWorkOrderPart(buildInforContext(inforContext), workOrderPart);
+		return inforClient.getWorkOrderMiscService().addWorkOrderPart(inforContext, workOrderPart);
 	}
 
 	@Override
 	public String createMatarialList(InforContext inforContext, MaterialList materialList) throws InforException {
-		return inforClient.getWorkOrderMiscService().createMaterialList(buildInforContext(inforContext), materialList);
+		return inforClient.getWorkOrderMiscService().createMaterialList(inforContext, materialList);
 	}
 
 	@Override
 	public String createTaskplanChecklist(InforContext inforContext, TaskplanCheckList taskChecklist) throws InforException {
-		return inforClient.getChecklistService().createTaskplanChecklist(buildInforContext(inforContext), taskChecklist);
+		return inforClient.getChecklistService().createTaskplanChecklist(inforContext, taskChecklist);
 	}
 
 	@Override
 	public String createTaskPlan(InforContext inforContext, TaskPlan taskPlan) throws InforException {
-		return inforClient.getWorkOrderMiscService().createTaskPlan(buildInforContext(inforContext), taskPlan);
+		return inforClient.getWorkOrderMiscService().createTaskPlan(inforContext, taskPlan);
 	}
 
 	@Override
-	public WorkOrderActivityCheckList[] readWOActivityChecklists(InforContext inforContext, Activity activity) throws InforException {
-		return inforClient.getChecklistService().readWorkOrderChecklists(buildInforContext(inforContext), activity);
+	public WorkOrderActivityCheckList[] readWorkOrderChecklists(InforContext inforContext, Activity activity) throws InforException {
+		return inforClient.getChecklistService().readWorkOrderChecklists(inforContext, activity);
 	}
 
 	@Override
 	public String updateWorkOrderChecklists(InforContext inforContext, WorkOrderActivityCheckList WorkOrderChecklist) throws InforException {
-		return inforClient.getChecklistService().updateWorkOrderChecklist(buildInforContext(inforContext), WorkOrderChecklist);
+		return inforClient.getChecklistService().updateWorkOrderChecklist(inforContext, WorkOrderChecklist);
 	}
 
 	@Override
 	public String createRouteEquipment(InforContext inforContext, RouteEquipment routeEquipment) throws InforException {
-		return inforClient.getWorkOrderMiscService().createRouteEquipment(buildInforContext(inforContext), routeEquipment);
+		return inforClient.getWorkOrderMiscService().createRouteEquipment(inforContext, routeEquipment);
 	}
 
 	@Override
 	public String deleteRouteEquipment(InforContext inforContext, RouteEquipment routeEquipment) throws InforException {
-		return inforClient.getWorkOrderMiscService().deleteRouteEquipment(buildInforContext(inforContext), routeEquipment);
+		return inforClient.getWorkOrderMiscService().deleteRouteEquipment(inforContext, routeEquipment);
 	}
 
 	/*
@@ -256,7 +248,7 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String createAspect(InforContext inforContext, Aspect aspect) throws InforException {
-		return inforClient.getInspectionService().addAspect(buildInforContext(inforContext), aspect);
+		return inforClient.getInspectionService().addAspect(inforContext, aspect);
 	}
 
 	//
@@ -264,17 +256,17 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String createComment(InforContext inforContext, Comment commentParam) throws InforException {
-		return inforClient.getCommentService().createComment(buildInforContext(inforContext), commentParam);
+		return inforClient.getCommentService().createComment(inforContext, commentParam);
 	}
 
 	@Override
 	public String updateComment(InforContext inforContext, Comment commentParam) throws InforException {
-		return inforClient.getCommentService().updateComment(buildInforContext(inforContext), commentParam);
+		return inforClient.getCommentService().updateComment(inforContext, commentParam);
 	}
 
 	@Override
 	public Comment[] readComments(InforContext inforContext, Comment commentParam) throws InforException {
-		return inforClient.getCommentService().readComments(buildInforContext(inforContext), commentParam.getEntityCode(), commentParam.getEntityKeyCode(), commentParam.getTypeCode());
+		return inforClient.getCommentService().readComments(inforContext, commentParam.getEntityCode(), commentParam.getEntityKeyCode(), commentParam.getTypeCode());
 	}
 
 	//
@@ -282,37 +274,37 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String updateEquipment(InforContext inforContext, Equipment equipmentParam) throws InforException {
-		return inforClient.getEquipmentFacadeService().updateEquipment(buildInforContext(inforContext), equipmentParam);
+		return inforClient.getEquipmentFacadeService().updateEquipment(inforContext, equipmentParam);
 	}
 
 	@Override
 	public String createEquipment(InforContext inforContext, Equipment equipmentParam) throws InforException {
-		return inforClient.getEquipmentFacadeService().createEquipment(buildInforContext(inforContext), equipmentParam);
+		return inforClient.getEquipmentFacadeService().createEquipment(inforContext, equipmentParam);
 	}
 
 	@Override
-	public Equipment readEquipment(InforContext inforContext, String equipmentCode) throws InforException {
-		return inforClient.getEquipmentFacadeService().readEquipment(buildInforContext(inforContext), equipmentCode);
+	public Equipment readEquipment(InforContext inforContext, Equipment equipment) throws InforException {
+		return inforClient.getEquipmentFacadeService().readEquipment(inforContext, equipment);
 	}
 
 	@Override
-	public String deleteEquipment(InforContext inforContext, String equipmentCode) throws InforException {
-		return inforClient.getEquipmentFacadeService().deleteEquipment(buildInforContext(inforContext), equipmentCode);
+	public String deleteEquipment(InforContext inforContext, Equipment equipment) throws InforException {
+		return inforClient.getEquipmentFacadeService().deleteEquipment(inforContext, equipment);
 	}
 
 	@Override
 	public BatchResponse<String> createEquipmentBatch(InforContext inforContext, List<Equipment> equipmentList) throws InforException {
-		return inforClient.getEquipmentFacadeService().createEquipmentBatch(buildInforContext(inforContext), equipmentList);
+		return inforClient.getEquipmentFacadeService().createEquipmentBatch(inforContext, equipmentList);
 	}
 
 	@Override
-	public BatchResponse<Equipment> readEquipmentBatch(InforContext inforContext, List<String> numbers) {
-		return inforClient.getEquipmentFacadeService().readEquipmentBatch(buildInforContext(inforContext), numbers);
+	public BatchResponse<Equipment> readEquipmentBatch(InforContext inforContext, List<Equipment> equipmentList) {
+		return inforClient.getEquipmentFacadeService().readEquipmentBatch(inforContext, equipmentList);
 	}
 
 	@Override
 	public BatchResponse<String> updateEquipmentBatch(InforContext inforContext, List<Equipment> equipmentList) throws InforException {
-		return inforClient.getEquipmentFacadeService().updateEquipmentBatch(buildInforContext(inforContext), equipmentList);
+		return inforClient.getEquipmentFacadeService().updateEquipmentBatch(inforContext, equipmentList);
 	}
 
 	//
@@ -320,17 +312,17 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String createEquipmentLinearReference(InforContext inforContext, LinearReference linearReference) throws InforException {
-		return inforClient.getLinearReferenceService().createEquipmentLinearReference(buildInforContext(inforContext), linearReference);
+		return inforClient.getLinearReferenceService().createEquipmentLinearReference(inforContext, linearReference);
 	}
 
 	@Override
 	public String updateEquipmentLinearReference(InforContext inforContext, LinearReference linearReference) throws InforException {
-		return inforClient.getLinearReferenceService().updateEquipmentLinearReference(buildInforContext(inforContext), linearReference);
+		return inforClient.getLinearReferenceService().updateEquipmentLinearReference(inforContext, linearReference);
 	}
 
 	@Override
 	public String deleteEquipmentLinearReference(InforContext inforContext, String linearReferenceID) throws InforException {
-		return inforClient.getLinearReferenceService().deleteEquipmentLinearReference(buildInforContext(inforContext), linearReferenceID);
+		return inforClient.getLinearReferenceService().deleteEquipmentLinearReference(inforContext, linearReferenceID);
 	}
 
 	//
@@ -338,17 +330,17 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String addEquipmentToStructure(InforContext inforContext, EquipmentStructure equipmentStructure) throws InforException {
-		return inforClient.getEquipmentHierarchyService().addEquipmentToStructure(buildInforContext(inforContext), equipmentStructure);
+		return inforClient.getEquipmentStructureService().addEquipmentToStructure(inforContext, equipmentStructure);
 	}
 
 	@Override
 	public String updateEquipmentStructure(InforContext inforContext, EquipmentStructure equipmentStructure) throws InforException {
-		return inforClient.getEquipmentHierarchyService().updateEquipmentStructure(buildInforContext(inforContext), equipmentStructure);
+		return inforClient.getEquipmentStructureService().updateEquipmentStructure(inforContext, equipmentStructure);
 	}
 
 	@Override
 	public String removeEquipmentFromStructure(InforContext inforContext, EquipmentStructure equipmentStructure) throws InforException {
-		return inforClient.getEquipmentHierarchyService().removeEquipmentFromStructure(buildInforContext(inforContext), equipmentStructure);
+		return inforClient.getEquipmentStructureService().removeEquipmentFromStructure(inforContext, equipmentStructure);
 	}
 
 	//
@@ -356,12 +348,12 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String createEquipmentWarrantyCoverage(InforContext inforContext, EquipmentWarranty equipmentWarrantyParam) throws InforException {
-		return inforClient.getWarrantyCoverageService().createEquipmentWarrantyCoverage(buildInforContext(inforContext), equipmentWarrantyParam);
+		return inforClient.getEquipmentWarrantyCoverageService().createEquipmentWarrantyCoverage(inforContext, equipmentWarrantyParam);
 	}
 
 	@Override
 	public String updateEquipmentWarrantyCoverage(InforContext inforContext, EquipmentWarranty equipmentWarrantyParam) throws InforException {
-		return inforClient.getWarrantyCoverageService().updateEquipmentWarrantyCoverage(buildInforContext(inforContext), equipmentWarrantyParam);
+		return inforClient.getEquipmentWarrantyCoverageService().updateEquipmentWarrantyCoverage(inforContext, equipmentWarrantyParam);
 	}
 
 	//
@@ -369,17 +361,17 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String createEquipmentPMSchedule(InforContext inforContext, EquipmentPMSchedule pmSchedule) throws InforException {
-		return inforClient.getPmScheduleService().createEquipmentPMSchedule(buildInforContext(inforContext), pmSchedule);
+		return inforClient.getPmScheduleService().createEquipmentPMSchedule(inforContext, pmSchedule);
 	}
 
 	@Override
 	public String deleteEquipmentPMSchedule(InforContext inforContext, EquipmentPMSchedule pmSchedule) throws InforException {
-		return inforClient.getPmScheduleService().deleteEquipmentPMSchedule(buildInforContext(inforContext), pmSchedule);
+		return inforClient.getPmScheduleService().deleteEquipmentPMSchedule(inforContext, pmSchedule);
 	}
 
 	@Override
 	public String updateEquipmentPMSchedule(InforContext inforContext, EquipmentPMSchedule pmSchedule) throws InforException {
-		return inforClient.getPmScheduleService().updateEquipmentPMSchedule(buildInforContext(inforContext), pmSchedule);
+		return inforClient.getPmScheduleService().updateEquipmentPMSchedule(inforContext, pmSchedule);
 	}
 
 	//
@@ -387,12 +379,12 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String createEquipmentDepreciation(InforContext inforContext, EquipmentDepreciation equipmentDepreciation) throws InforException {
-		return inforClient.getEquipmentOtherService().createEquipmentDepreciation(buildInforContext(inforContext), equipmentDepreciation);
+		return inforClient.getEquipmentOtherService().createEquipmentDepreciation(inforContext, equipmentDepreciation);
 	}
 
 	@Override
 	public String updateEquipmentDepreciation(InforContext inforContext, EquipmentDepreciation equipmentDepreciation) throws InforException {
-		return inforClient.getEquipmentOtherService().updateEquipmentDepreciation(buildInforContext(inforContext), equipmentDepreciation);
+		return inforClient.getEquipmentOtherService().updateEquipmentDepreciation(inforContext, equipmentDepreciation);
 	}
 	//
 	// EQUIPMENT OTHER
@@ -400,7 +392,7 @@ public class WSHubBean implements WSHub, WSHubRemote {
 
 	@Override
 	public String createEquipmentCampaign(InforContext inforContext, EquipmentCampaign equipmentCampaign) throws InforException {
-		return inforClient.getEquipmentOtherService().createEquipmentCampaign(buildInforContext(inforContext), equipmentCampaign);
+		return inforClient.getEquipmentOtherService().createEquipmentCampaign(inforContext, equipmentCampaign);
 	}
 
 	//
@@ -408,52 +400,52 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String createPart(InforContext inforContext, Part partParam) throws InforException {
-		return inforClient.getPartService().createPart(buildInforContext(inforContext), partParam);
+		return inforClient.getPartService().createPart(inforContext, partParam);
 	}
 
 	@Override
 	public String updatePart(InforContext inforContext, Part partParam) throws InforException {
-		return inforClient.getPartService().updatePart(buildInforContext(inforContext), partParam);
+		return inforClient.getPartService().updatePart(inforContext, partParam);
 	}
 
 	@Override
 	public Part readPart(InforContext inforContext, String partCode) throws InforException {
-		return inforClient.getPartService().readPart(buildInforContext(inforContext), partCode);
+		return inforClient.getPartService().readPart(inforContext, partCode);
 	}
 
 	@Override
 	public String deletePart(InforContext inforContext, String partCode) throws InforException {
-		return inforClient.getPartService().deletePart(buildInforContext(inforContext), partCode);
+		return inforClient.getPartService().deletePart(inforContext, partCode);
 	}
 
 	@Override
 	public String createIssueReturnPartTransaction(InforContext inforContext, IssueReturnPartTransaction issueReturnPartTransaction) throws InforException {
-		return inforClient.getPartMiscService().createIssueReturnTransaction(buildInforContext(inforContext), issueReturnPartTransaction);
+		return inforClient.getPartMiscService().createIssueReturnTransaction(inforContext, issueReturnPartTransaction);
 	}
 
 	@Override
 	public String addPartStore(InforContext inforContext, PartStore partStoreParam) throws InforException {
-		return inforClient.getPartStoreService().addPartStore(buildInforContext(inforContext), partStoreParam);
+		return inforClient.getPartStoreService().addPartStore(inforContext, partStoreParam);
 	}
 
 	@Override
 	public String updatePartStore(InforContext inforContext, PartStore partStoreParam) throws InforException {
-		return inforClient.getPartStoreService().updatePartStore(buildInforContext(inforContext), partStoreParam);
+		return inforClient.getPartStoreService().updatePartStore(inforContext, partStoreParam);
 	}
 
 	@Override
 	public String addPartSupplier(InforContext inforContext, PartSupplier partSupplierParam) throws InforException {
-		return inforClient.getPartMiscService().addPartSupplier(buildInforContext(inforContext), partSupplierParam);
+		return inforClient.getPartMiscService().addPartSupplier(inforContext, partSupplierParam);
 	}
 
 	@Override
 	public String addPartStock(InforContext inforContext, PartStock partStockParam) throws InforException {
-		return inforClient.getPartBinStockService().addPartStock(buildInforContext(inforContext), partStockParam);
+		return inforClient.getPartBinStockService().addPartStock(inforContext, partStockParam);
 	}
 
 	@Override
 	public String updatePartStock(InforContext inforContext, PartStock partStockParam) throws InforException {
-		return inforClient.getPartBinStockService().updatePartStock(buildInforContext(inforContext), partStockParam);
+		return inforClient.getPartBinStockService().updatePartStock(inforContext, partStockParam);
 	}
 
 	//
@@ -461,23 +453,23 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public PartManufacturer[] readPartManufacturers(InforContext inforContext, String partCode) throws InforException {
-		return inforClient.getPartMiscService().getPartManufacturers(buildInforContext(inforContext), partCode);
+		return inforClient.getPartMiscService().getPartManufacturers(inforContext, partCode);
 	}
 
 	@Override
 	public String addPartManufacturer(InforContext inforContext, PartManufacturer partManufacturerParam)
 			throws InforException {
-		return inforClient.getPartManufacturerService().addPartManufacturer(buildInforContext(inforContext), partManufacturerParam);
+		return inforClient.getPartManufacturerService().addPartManufacturer(inforContext, partManufacturerParam);
 	}
 
 	@Override
 	public String updatePartManufacturer(InforContext inforContext, PartManufacturer partManufacturerParam) throws InforException {
-		return inforClient.getPartManufacturerService().updatePartManufacturer(buildInforContext(inforContext), partManufacturerParam);
+		return inforClient.getPartManufacturerService().updatePartManufacturer(inforContext, partManufacturerParam);
 	}
 
 	@Override
 	public String deletePartManufacturer(InforContext inforContext, PartManufacturer partManufacturerParam) throws InforException {
-		return inforClient.getPartManufacturerService().deletePartManufacturer(buildInforContext(inforContext), partManufacturerParam);
+		return inforClient.getPartManufacturerService().deletePartManufacturer(inforContext, partManufacturerParam);
 	}
 
 	//
@@ -486,13 +478,13 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	@Override
 	public String createPartAssociation(InforContext inforContext, PartAssociation partAssociation)
 			throws InforException {
-		return inforClient.getPartMiscService().createPartAssociation(buildInforContext(inforContext), partAssociation);
+		return inforClient.getPartMiscService().createPartAssociation(inforContext, partAssociation);
 	}
 
 	@Override
 	public String deletePartAssociation(InforContext inforContext, PartAssociation partAssociation)
 			throws InforException {
-		return inforClient.getPartMiscService().deletePartAssociation(buildInforContext(inforContext), partAssociation);
+		return inforClient.getPartMiscService().deletePartAssociation(inforContext, partAssociation);
 	}
 
 	//TODO
@@ -507,12 +499,12 @@ public class WSHubBean implements WSHub, WSHubRemote {
 
 	@Override
 	public String createPartSubstitute(InforContext inforContext, PartSubstitute partSubstitute) throws InforException {
-		return inforClient.getPartMiscService().createPartSubstitute(buildInforContext(inforContext), partSubstitute);
+		return inforClient.getPartMiscService().createPartSubstitute(inforContext, partSubstitute);
 	}
 
 	@Override
 	public String createStoreBin(InforContext inforContext, Bin bin) throws InforException {
-		return inforClient.getPartMiscService().addStoreBin(buildInforContext(inforContext), bin);
+		return inforClient.getPartMiscService().addStoreBin(inforContext, bin);
 	}
 
 	//
@@ -521,7 +513,7 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	@ExcludeClassInterceptors
 	@Override
 	public String executeAsync(InforContext inforContext, AsyncExecution asyncExecution) throws InforException {
-		return messageSender.executeAsync(buildInforContext(inforContext), asyncExecution);
+		return messageSender.executeAsync(inforContext, asyncExecution);
 	}
 
 	//
@@ -529,12 +521,12 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public String login(InforContext inforContext) throws InforException {
-		return inforClient.getUserSetupService().login(buildInforContext(inforContext));
+		return inforClient.getUserSetupService().login(inforContext);
 	}
 
 	@Override
 	public CustomField[] readMTCustomFields(InforContext inforContext, String entity, String inforClass) throws InforException {
-		return inforClient.getTools().getCustomFieldsTools().getMTCustomFields(buildInforContext(inforContext), entity, inforClass);
+		return inforClient.getTools().getCustomFieldsTools().getMTCustomFields(inforContext, entity, inforClass);
 	}
 
 	//
@@ -542,23 +534,23 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public GridRequestResult getGridResult(InforContext inforContext, GridRequest gridRequest) throws InforException {
-		return inforClient.getGridsService().executeQuery(buildInforContext(inforContext), gridRequest);
+		return inforClient.getGridsService().executeQuery(inforContext, gridRequest);
 	}
 
 	@Override
 	public GridMetadataRequestResult getGridMetadata(InforContext inforContext, String gridCode, String viewType, String language) throws InforException {
-		return inforClient.getGridsService().getGridMetadata(buildInforContext(inforContext), gridCode, viewType, language);
+		return inforClient.getGridsService().getGridMetadata(inforContext, gridCode, viewType, language);
 	}
 
 	@Override
 	public GridDataspy getDefaultDataspy(InforContext inforContext, String gridCode, String viewType)
 			throws InforException {
-		return inforClient.getGridsService().getDefaultDataspy(buildInforContext(inforContext), gridCode, viewType);
+		return inforClient.getGridsService().getDefaultDataspy(inforContext, gridCode, viewType);
 	}
 
 	@Override
 	public GridDDSpyFieldsResult getDDspyFields(InforContext inforContext, String gridCode, String viewType, String ddSpyId, String language) throws InforException {
-		return inforClient.getGridsService().getDDspyFields(buildInforContext(inforContext), gridCode, viewType, ddSpyId, language);
+		return inforClient.getGridsService().getDDspyFields(inforContext, gridCode, viewType, ddSpyId, language);
 	}
 
 	//
@@ -566,22 +558,22 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public List<InforDocument> readInforDocuments(InforContext inforContext, String entity, String objectCode) throws InforException {
-		return inforClient.getDocumentsService().readInforDocuments(buildInforContext(inforContext), entity, objectCode);
+		return inforClient.getDocumentsService().readInforDocuments(inforContext, entity, objectCode);
 	}
 
 	@Override
 	public String createInforDocumentAssociation(InforContext inforContext, String document, String entity, String objectCode) throws InforException {
-		return inforClient.getDocumentsService().createInforDocumentAssociation(document, entity, objectCode, buildInforContext(inforContext));
+		return inforClient.getDocumentsService().createInforDocumentAssociation(document, entity, objectCode, inforContext);
 	}
 
 	@Override
 	public String createInforDocument(InforContext inforContext, InforDocument inforDocument) throws InforException {
-		return inforClient.getDocumentsService().createInforDocument(inforDocument, buildInforContext(inforContext));
+		return inforClient.getDocumentsService().createInforDocument(inforDocument, inforContext);
 	}
 
 	@Override
 	public String createInforDocumentAndAssociation(InforContext inforContext, InforDocument inforDocument, String entity, String objectCode) throws InforException {
-		return inforClient.getDocumentsService().createInforDocumentAndAssociation(buildInforContext(inforContext), inforDocument, entity, objectCode);
+		return inforClient.getDocumentsService().createInforDocumentAndAssociation(inforContext, inforDocument, entity, objectCode);
 	}
 
 	//
@@ -589,22 +581,22 @@ public class WSHubBean implements WSHub, WSHubRemote {
 	//
 	@Override
 	public EAMUser readUserSetup(InforContext inforContext, String userCode) throws InforException {
-		return inforClient.getUserSetupService().readUserSetup(buildInforContext(inforContext), userCode);
+		return inforClient.getUserSetupService().readUserSetup(inforContext, userCode);
 	}
 
 	@Override
 	public String createUserSetup(InforContext inforContext, EAMUser user) throws InforException {
-		return inforClient.getUserSetupService().createUserSetup(buildInforContext(inforContext), user);
+		return inforClient.getUserSetupService().createUserSetup(inforContext, user);
 	}
 
 	@Override
 	public String updateUserSetup(InforContext inforContext, EAMUser user) throws InforException {
-		return inforClient.getUserSetupService().updateUserSetup(buildInforContext(inforContext), user);
+		return inforClient.getUserSetupService().updateUserSetup(inforContext, user);
 	}
 
 	@Override
 	public String deleteUserSetup(InforContext inforContext, String userCode) throws InforException {
-		return inforClient.getUserSetupService().deleteUserSetup(buildInforContext(inforContext), userCode);
+		return inforClient.getUserSetupService().deleteUserSetup(inforContext, userCode);
 	}
 
 
@@ -614,22 +606,22 @@ public class WSHubBean implements WSHub, WSHubRemote {
 
 	@Override
 	public Employee readEmployee(InforContext inforContext, String employeeCode) throws InforException {
-		return inforClient.getEmployeeService().readEmployee(buildInforContext(inforContext), employeeCode);
+		return inforClient.getEmployeeService().readEmployee(inforContext, employeeCode);
 	}
 
 	@Override
 	public String createEmployee(InforContext inforContext, Employee employee) throws InforException {
-		return inforClient.getEmployeeService().createEmployee(buildInforContext(inforContext), employee);
+		return inforClient.getEmployeeService().createEmployee(inforContext, employee);
 	}
 
 	@Override
 	public String updateEmployee(InforContext inforContext, Employee employee) throws InforException {
-		return inforClient.getEmployeeService().updateEmployee(buildInforContext(inforContext), employee);
+		return inforClient.getEmployeeService().updateEmployee(inforContext, employee);
 	}
 
 	@Override
 	public String deleteEmployee(InforContext inforContext, String employeeCode) throws InforException {
-		return inforClient.getEmployeeService().deleteEmployee(buildInforContext(inforContext), employeeCode);
+		return inforClient.getEmployeeService().deleteEmployee(inforContext, employeeCode);
 	}
 
 }

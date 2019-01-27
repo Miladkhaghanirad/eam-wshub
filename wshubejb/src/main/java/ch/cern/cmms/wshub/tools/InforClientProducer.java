@@ -2,6 +2,8 @@ package ch.cern.cmms.wshub.tools;
 
 import ch.cern.eam.wshub.core.client.InforClient;
 import ch.cern.cmms.wshub.handlers.SOAPHandlerResolver;
+import ch.cern.eam.wshub.core.tools.InforException;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.enterprise.concurrent.ManagedExecutorService;
@@ -24,7 +26,7 @@ public class InforClientProducer {
 	private ManagedExecutorService executorService;
 	
 	@PostConstruct
-	public void init() {
+	public void init() throws InforException {
 		inforClient = new InforClient.Builder(applicationData.getInforWSURL(), applicationData.getTenant())
 				.withDefaultOrganizationCode("*")
 				.withSOAPHandlerResolver(new SOAPHandlerResolver())

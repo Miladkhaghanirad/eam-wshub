@@ -4,9 +4,8 @@ import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
-
-import ch.cern.cmms.wshub.beans.InforContext;
 import ch.cern.eam.wshub.core.client.InforClient;
+import ch.cern.eam.wshub.core.client.InforContext;
 import org.jboss.logging.Logger.Level;
 import ch.cern.cmms.wshub.tools.Tools;
 

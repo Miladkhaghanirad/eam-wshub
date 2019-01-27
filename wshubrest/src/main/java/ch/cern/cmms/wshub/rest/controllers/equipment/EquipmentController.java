@@ -23,8 +23,10 @@ public class EquipmentController extends WSHubController {
     @Path("/{code}")
     @Produces("application/json")
     public Response readEquipment(@PathParam("code") String code) {
+        Equipment equipment = new Equipment();
+        equipment.setCode(code);
         try {
-            return ok(inforClient.getEquipmentFacadeService().readEquipment(authentication.getInforContext(), code));
+            return ok(inforClient.getEquipmentFacadeService().readEquipment(authentication.getInforContext(), equipment));
         } catch (InforException e) {
             return badRequest(e);
         } catch(Exception e) {
@@ -36,10 +38,10 @@ public class EquipmentController extends WSHubController {
     @Path("/{code}")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response updateEquipment(@PathParam("code") String code, Equipment workOrder) {
+    public Response updateEquipment(@PathParam("code") String code, Equipment equipment) {
         try {
-            workOrder.setCode(code);
-            return ok(inforClient.getEquipmentFacadeService().updateEquipment(authentication.getInforContext(), workOrder));
+            equipment.setCode(code);
+            return ok(inforClient.getEquipmentFacadeService().updateEquipment(authentication.getInforContext(), equipment));
         } catch (InforException e) {
             return badRequest(e);
         } catch(Exception e) {
@@ -68,7 +70,9 @@ public class EquipmentController extends WSHubController {
     @Produces("application/json")
     public Response deleteEquipment(@PathParam("code") String code) {
         try {
-            inforClient.getEquipmentFacadeService().deleteEquipment(authentication.getInforContext(), code);
+            Equipment equipment = new Equipment();
+            equipment.setCode(code);
+            inforClient.getEquipmentFacadeService().deleteEquipment(authentication.getInforContext(), equipment);
             return noConent();
         } catch (InforException e) {
             return badRequest(e);
@@ -85,7 +89,7 @@ public class EquipmentController extends WSHubController {
     @Path("/list/")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response readEquipment(List<String> equipment) {
+    public Response readEquipment(List<Equipment> equipment) {
         try {
             return ok(inforClient.getEquipmentFacadeService().readEquipmentBatch(authentication.getInforContext(), equipment));
         } catch (InforException e) {
@@ -117,6 +121,20 @@ public class EquipmentController extends WSHubController {
     public Response updateEquipments(List<Equipment> equipment) {
         try {
             return ok(inforClient.getEquipmentFacadeService().updateEquipmentBatch(authentication.getInforContext(), equipment));
+        } catch (InforException e) {
+            return badRequest(e);
+        } catch(Exception e) {
+            return serverError(e);
+        }
+    }
+
+    @DELETE
+    @Path("/list/")
+    @Produces("application/json")
+    @Consumes("application/json")
+    public Response deleteEquipments(List<Equipment> equipment) {
+        try {
+            return ok(inforClient.getEquipmentFacadeService().deleteEquipmentBatch(authentication.getInforContext(), equipment));
         } catch (InforException e) {
             return badRequest(e);
         } catch(Exception e) {
