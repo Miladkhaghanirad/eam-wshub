@@ -3,7 +3,7 @@ package ch.cern.cmms.wshub.rest.controllers.comments;
 import ch.cern.cmms.wshub.rest.controllers.WSHubController;
 import ch.cern.cmms.wshub.rest.tools.AuthenticationTools;
 import ch.cern.eam.wshub.core.client.InforClient;
-import ch.cern.eam.wshub.core.services.entities.Comment;
+import ch.cern.eam.wshub.core.services.comments.entities.Comment;
 import ch.cern.eam.wshub.core.tools.InforException;
 import javax.inject.Inject;
 import javax.ws.rs.*;

@@ -25,27 +25,27 @@ public class AuthenticationTools {
         String organization = request.getHeader("INFOR_ORGANIZATION");
         String sessionid = request.getHeader("INFOR_SESSIONID");
 
-        InforContext.Builder inforContextBuilder = new InforContext.Builder();
+        InforContext inforContext = new InforContext();
 
         // Organization
-        if (organization == null || organization.trim().equals("")) {
+        if (!notEmpty(organization)) {
             throw inforClient.getTools().generateFault("Organization is required.");
         }
-        inforContextBuilder.withOrganizationCode(organization);
+        inforContext.setOrganizationCode(organization);
 
         // Credentials, Session ID
         if (notEmpty(user) && notEmpty(password)) {
             Credentials credentials = new Credentials();
             credentials.setUsername(user);
             credentials.setPassword(password);
-            inforContextBuilder.withCredentials(credentials);
+            inforContext.setCredentials(credentials);
         } else if (notEmpty(sessionid)) {
-            inforContextBuilder.withSessionID(sessionid);
+            inforContext.setSessionID(sessionid);
         } else {
             throw inforClient.getTools().generateFault("Credentials or Session ID is required.");
         }
 
-        return inforContextBuilder.build();
+        return inforContext;
     }
 
     private boolean notEmpty(String string) {

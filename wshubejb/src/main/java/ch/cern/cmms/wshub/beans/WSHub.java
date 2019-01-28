@@ -8,8 +8,10 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import ch.cern.eam.wshub.core.client.InforContext;
+import ch.cern.eam.wshub.core.services.comments.entities.Comment;
 import ch.cern.eam.wshub.core.services.entities.*;
 import ch.cern.eam.wshub.core.services.equipment.entities.*;
+import ch.cern.eam.wshub.core.services.material.entities.*;
 import ch.cern.eam.wshub.core.services.workorders.entities.*;
 import ch.cern.eam.wshub.core.services.entities.BatchResponse;
 import ch.cern.cmms.wshub.entities.AsyncExecution;
@@ -20,16 +22,6 @@ import ch.cern.eam.wshub.core.services.grids.entities.GridMetadataRequestResult;
 import ch.cern.eam.wshub.core.services.grids.entities.GridRequest;
 import ch.cern.eam.wshub.core.services.grids.entities.GridRequestResult;
 import ch.cern.eam.wshub.core.services.documents.entities.InforDocument;
-import ch.cern.eam.wshub.core.services.material.entities.Bin;
-import ch.cern.eam.wshub.core.services.material.entities.MaterialList;
-import ch.cern.eam.wshub.core.services.material.entities.Part;
-import ch.cern.eam.wshub.core.services.material.entities.PartAssociation;
-import ch.cern.eam.wshub.core.services.material.entities.PartManufacturer;
-import ch.cern.eam.wshub.core.services.material.entities.PartStock;
-import ch.cern.eam.wshub.core.services.material.entities.PartStore;
-import ch.cern.eam.wshub.core.services.material.entities.PartSubstitute;
-import ch.cern.eam.wshub.core.services.material.entities.PartSupplier;
-import ch.cern.eam.wshub.core.services.material.entities.PurchaseOrder;
 import ch.cern.eam.wshub.core.tools.InforException;
 import ch.cern.eam.wshub.core.services.workorders.entities.Employee;
 import ch.cern.eam.wshub.core.services.workorders.entities.Activity;
@@ -310,12 +302,12 @@ public interface WSHub {
 
 	Equipment readEquipment(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "equipment") Equipment equipment)
+			@WebParam(name = "equipment") String equipmentCode)
 			throws InforException;
 
 	String deleteEquipment(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "equipment") Equipment equipment)
+			@WebParam(name = "equipment") String equipmentCode)
 			throws InforException;
 
 	@WebResult(name = "equipmentCode")
@@ -327,7 +319,7 @@ public interface WSHub {
 
 	BatchResponse<Equipment> readEquipmentBatch(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
-			@WebParam(name = "equipmentList", header = false) List<Equipment> equipmentList)
+			@WebParam(name = "equipmentList", header = false) List<String> equipmentList)
 			throws InforException;
 
 	BatchResponse<String> updateEquipmentBatch(

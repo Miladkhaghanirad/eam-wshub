@@ -2,6 +2,7 @@ package ch.cern.cmms.wshub.beans;
 
 import ch.cern.eam.wshub.core.client.InforClient;
 import ch.cern.eam.wshub.core.client.InforContext;
+import ch.cern.eam.wshub.core.services.comments.entities.Comment;
 import ch.cern.eam.wshub.core.services.entities.*;
 import ch.cern.eam.wshub.core.services.equipment.entities.*;
 import ch.cern.eam.wshub.core.services.material.entities.*;
@@ -283,13 +284,13 @@ public class WSHubBean implements WSHub {
 	}
 
 	@Override
-	public Equipment readEquipment(InforContext inforContext, Equipment equipment) throws InforException {
-		return inforClient.getEquipmentFacadeService().readEquipment(inforContext, equipment);
+	public Equipment readEquipment(InforContext inforContext, String equipmentCode) throws InforException {
+		return inforClient.getEquipmentFacadeService().readEquipment(inforContext, equipmentCode);
 	}
 
 	@Override
-	public String deleteEquipment(InforContext inforContext, Equipment equipment) throws InforException {
-		return inforClient.getEquipmentFacadeService().deleteEquipment(inforContext, equipment);
+	public String deleteEquipment(InforContext inforContext, String equipmentCode) throws InforException {
+		return inforClient.getEquipmentFacadeService().deleteEquipment(inforContext, equipmentCode);
 	}
 
 	@Override
@@ -298,7 +299,7 @@ public class WSHubBean implements WSHub {
 	}
 
 	@Override
-	public BatchResponse<Equipment> readEquipmentBatch(InforContext inforContext, List<Equipment> equipmentList) {
+	public BatchResponse<Equipment> readEquipmentBatch(InforContext inforContext, List<String> equipmentList) {
 		return inforClient.getEquipmentFacadeService().readEquipmentBatch(inforContext, equipmentList);
 	}
 

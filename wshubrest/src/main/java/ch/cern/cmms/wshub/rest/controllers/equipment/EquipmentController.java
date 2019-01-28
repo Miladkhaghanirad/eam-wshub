@@ -23,10 +23,8 @@ public class EquipmentController extends WSHubController {
     @Path("/{code}")
     @Produces("application/json")
     public Response readEquipment(@PathParam("code") String code) {
-        Equipment equipment = new Equipment();
-        equipment.setCode(code);
         try {
-            return ok(inforClient.getEquipmentFacadeService().readEquipment(authentication.getInforContext(), equipment));
+            return ok(inforClient.getEquipmentFacadeService().readEquipment(authentication.getInforContext(), code));
         } catch (InforException e) {
             return badRequest(e);
         } catch(Exception e) {
@@ -70,9 +68,7 @@ public class EquipmentController extends WSHubController {
     @Produces("application/json")
     public Response deleteEquipment(@PathParam("code") String code) {
         try {
-            Equipment equipment = new Equipment();
-            equipment.setCode(code);
-            inforClient.getEquipmentFacadeService().deleteEquipment(authentication.getInforContext(), equipment);
+            inforClient.getEquipmentFacadeService().deleteEquipment(authentication.getInforContext(), code);
             return noConent();
         } catch (InforException e) {
             return badRequest(e);
@@ -89,9 +85,9 @@ public class EquipmentController extends WSHubController {
     @Path("/list/")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response readEquipment(List<Equipment> equipment) {
+    public Response readEquipment(List<String> equipmentCodes) {
         try {
-            return ok(inforClient.getEquipmentFacadeService().readEquipmentBatch(authentication.getInforContext(), equipment));
+            return ok(inforClient.getEquipmentFacadeService().readEquipmentBatch(authentication.getInforContext(), equipmentCodes));
         } catch (InforException e) {
             return badRequest(e);
         } catch(Exception e) {
@@ -132,9 +128,9 @@ public class EquipmentController extends WSHubController {
     @Path("/list/")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response deleteEquipments(List<Equipment> equipment) {
+    public Response deleteEquipments(List<String> equipmentCodes) {
         try {
-            return ok(inforClient.getEquipmentFacadeService().deleteEquipmentBatch(authentication.getInforContext(), equipment));
+            return ok(inforClient.getEquipmentFacadeService().deleteEquipmentBatch(authentication.getInforContext(), equipmentCodes));
         } catch (InforException e) {
             return badRequest(e);
         } catch(Exception e) {
