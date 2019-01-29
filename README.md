@@ -24,6 +24,8 @@ The docker image needs to be parametrized with environment variables.
 | DB_STALE_CONNECTION_CHECKER   | No |  |
 | DB_EXCEPTION_SORTER   | No |  |
 
+Please not that for the moment the database connection is not supported and the non-mandatory parameters above won't be considered.
+
 You can for instance store your environment variables in a dedicated .env file:
 
 ```

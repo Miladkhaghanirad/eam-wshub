@@ -1,0 +1,2256 @@
+{
+	"info": {
+		"_postman_id": "75a60a4b-cf20-4c91-84e1-0ed0b55e36e8",
+		"name": "WSHub Rest Web Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Work Orders",
+			"item": [
+				{
+					"name": "Work Orders - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"typeCode\": \"CD\",\n\"statusCode\": \"R\",\n\"equipmentCode\": \"112\",\n\"departmentCode\": \"*TEST\",\n\"description\": \"New Desc\",\n\"scheduledStartDate\": \"20-JAN-2019\",\n\"scheduledEndDate\": \"31-JAN-2019\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/workorders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"workorders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Work Orders - Read",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"value": "{{INFOR_ORGANIZATION}}",
+								"type": "text"
+							},
+							{
+								"key": "INFOR_USER",
+								"value": "{{INFOR_USER}}",
+								"type": "text"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"value": "{{INFOR_PASSWORD}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/workorders/26089735",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"workorders",
+								"26089735"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Work Orders - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"New Desc Updated\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/workorders/26089554",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"workorders",
+								"26089554"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Work Orders - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/workorders/26089555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"workorders",
+								"26089555"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Work Order Activities",
+			"item": [
+				{
+					"name": "Activities - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"activityCode\": \"5\",\n\"tradeCode\": \"PRPT\",\n\"peopleRequired\": \"5\",\n\"estimatedHours\": \"10\",\n\"startDate\": \"SYSDATE\",\n\"endDate\": \"SYSDATE\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/workorders/activities/26089735",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"workorders",
+								"activities",
+								"26089735"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activities - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/workorders/activities/26089735",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"workorders",
+								"activities",
+								"26089735"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activities - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"activityCode\": \"5\",\n\"estimatedHours\": \"15\",\n\"startDate\": \"SYSDATE\",\n\"endDate\": \"SYSDATE\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/workorders/activities/26089735",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"workorders",
+								"activities",
+								"26089735"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Work Order Labor Bookings",
+			"item": [
+				{
+					"name": "Labor Bookings - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"activityCode\": \"5\",\n\"hoursWorked\": \"3\",\n\"typeOfHours\": \"N\",\n\"dateWorked\": \"SYSDATE\",\n\"tradeCode\": \"PRPT\", \n\"departmentCode\": \"*TEST\",\n\"employeeCode\": \"109615\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/workorders/laborbookings/26089735",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"workorders",
+								"laborbookings",
+								"26089735"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Labor Bookings - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/workorders/laborbookings/26089735",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"workorders",
+								"laborbookings",
+								"26089735"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Comments - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"typeCode\": \"*\",\n\"text\": \"Test Comment\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/comments/EVNT/26089555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"comments",
+								"EVNT",
+								"26089555"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comments - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/comments/EVNT/26089555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"comments",
+								"EVNT",
+								"26089555"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comments - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"text\": \"Updated Comment\",\n\"lineNumber\": \"5\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/comments/EVNT/26089555",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"comments",
+								"EVNT",
+								"26089555"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipment",
+			"item": [
+				{
+					"name": "Equipment - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"code\": \"EQUIPMENT001\",\n\"description\": \"EQUIPMENT001 Description\",\n\"departmentCode\": \"*TEST\",\n\"statusCode\": \"I\",\n\"typeCode\": \"A\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Equipment - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/EQUIPMENT001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"EQUIPMENT001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Equipment - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"EQUIPMENT001 Description Updated\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/EQUIPMENT001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"EQUIPMENT001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Equipment - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/EQUIPMENT001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"EQUIPMENT001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assets - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"code\": \"ASSET001\",\n\"description\": \"ASSET001 Description\",\n\"departmentCode\": \"*TEST\",\n\"statusCode\": \"I\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/assets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"assets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assets - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/assets/ASSET001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"assets",
+								"ASSET001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assets - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"ASSET001 Description Updated\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/assets/ASSET001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"assets",
+								"ASSET001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assets - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/assets/ASSET001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"assets",
+								"ASSET001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positions - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"code\": \"POSITION001\",\n\"description\": \"POSITION001 Description\",\n\"departmentCode\": \"*TEST\",\n\"statusCode\": \"I\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/positions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"positions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positions - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/positions/POSITION001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"positions",
+								"POSITION001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positions - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"POSITION001 Description Updated\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/positions/POSITION001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"positions",
+								"POSITION001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Positions - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/positions/POSITION001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"positions",
+								"POSITION001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Systems - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"code\": \"SYSTEM001\",\n\"description\": \"SYSTEM001 Description\",\n\"departmentCode\": \"*TEST\",\n\"statusCode\": \"I\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/systems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"systems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Systems - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/systems/SYSTEM001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"systems",
+								"SYSTEM001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Systems - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"SYSTEM001 Description Updated\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/systems/SYSTEM001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"systems",
+								"SYSTEM001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Systems - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/systems/SYSTEM001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"systems",
+								"SYSTEM001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipment PM Schedules",
+			"item": [
+				{
+					"name": "PM Schedules - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"equipmentCode\": \"ASSET001\",\n\t\"pmCode\": \"GP-PMS-001\",\n\t\"departmentCode\": \"*TEST\",\n\t\"periodUOM\": \"Y\",\n\t\"periodLength\": \"3\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/pmschedules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"pmschedules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PM Schedules - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pmCode\": \"GP-PMS-001\",\n\t\"sequenceNumber\": \"143210\",\n\t\"revision\": \"0\",\n\t\"periodUOM\": \"M\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/pmschedules/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"pmschedules",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PM Schedules - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\n\t\"pmCode\": \"GP-PMS-001\",\n\t\"sequenceNumber\": \"143210\",\n\t\"revision\": \"0\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/pmschedules/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"pmschedules",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipment Warranty Coverage",
+			"item": [
+				{
+					"name": "Warranties Coverage - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"equipmentCode\": \"ASSET001\",\n\"warrantyCode\": \"GS-EFM\",\n\"coverageType\": \"CALENDAR\",\n\"duration\": 5\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/warrantiescoverage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"warrantiescoverage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Warranties Coverage - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"sequenceNumber\": \"79201\",\n\"active\": \"trUe\",\n\"duration\": \"6\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/warrantiescoverage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"warrantiescoverage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipment Structure",
+			"item": [
+				{
+					"name": "Equipment Structure - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"childCode\": \"SYSTEM001\",\n\"newParentCode\": \"SYSTEM002\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/structure",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"structure"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Equipment Structure - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"childCode\": \"SYSTEM001\",\n\"newParentCode\": \"SYSTEM002\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/structure",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"structure"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Equipment Structure - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"childCode\": \"SYSTEM001\",\n\"newParentCode\": \"SYSTEM002\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/structure",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"structure"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Equipment Linear References",
+			"item": [
+				{
+					"name": "Linear References - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"equipmentCode\": \"ASSET001\",\n\"typeCode\": \"LRS\",\n\"fromPoint\": \"20\",\n\"toPoint\": \"25\",\n\"description\": \"Linear Reference Desc\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/linearreferences",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"linearreferences"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Linear References - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"fromPoint\": \"20\",\n\"toPoint\": \"199.1234\",\n\"description\": \"Linear Reference Desc Updated\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/linearreferences/10004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"linearreferences",
+								"10004"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Linear References - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/equipment/linearreferences/10004",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"equipment",
+								"linearreferences",
+								"10004"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parts",
+			"item": [
+				{
+					"name": "Parts - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"code\": \"PART001\",\n\"description\": \"PART001 Description\",\n\"uom\": \"pc\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/parts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"parts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parts - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"parts",
+								"PART001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parts - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"description\": \"PART001 Description Updated\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"parts",
+								"PART001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parts - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"parts",
+								"PART001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Part Manufacturers",
+			"item": [
+				{
+					"name": "Manufacturers - Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"manufacturerCode\": \"CERN\",\n\t\"outOfService\": \"+\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001/manufacturers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"parts",
+								"PART001",
+								"manufacturers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manufacturers - Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"outOfService\": \"false\",\n\t\"primary\": \"+\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001/manufacturers/CERN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"parts",
+								"PART001",
+								"manufacturers",
+								"CERN"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Manufacturers - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "INFOR_ORGANIZATION",
+								"type": "text",
+								"value": "{{INFOR_ORGANIZATION}}"
+							},
+							{
+								"key": "INFOR_USER",
+								"type": "text",
+								"value": "{{INFOR_USER}}"
+							},
+							{
+								"key": "INFOR_PASSWORD",
+								"type": "text",
+								"value": "{{INFOR_PASSWORD}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001/manufacturers/CERN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RESTWS",
+								"REST",
+								"parts",
+								"PART001",
+								"manufacturers",
+								"CERN"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
