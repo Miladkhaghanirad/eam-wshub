@@ -104,7 +104,7 @@
 		<dependency>
 			<groupId>ch.cern.eam</groupId>
 			<artifactId>eam-wshub-core</artifactId>
-			<version>11.4-1-SNAPSHOT</version>
+			<version>11.4-2-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

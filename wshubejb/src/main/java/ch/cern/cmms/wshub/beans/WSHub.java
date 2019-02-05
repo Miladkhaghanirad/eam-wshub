@@ -591,7 +591,7 @@ public interface WSHub {
 
 	@WebResult(name = "sessionID")
 	String login(
-			@WebParam(name = "inforContext", header = true) InforContext inforContext)
+			@WebParam(name = "inforContext", header = true) InforContext inforContext, String useCode)
 			throws InforException;
 
 	@WebResult(name = "employee")

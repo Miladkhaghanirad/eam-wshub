@@ -521,8 +521,8 @@ public class WSHubBean implements WSHub {
 	//
 	//
 	@Override
-	public String login(InforContext inforContext) throws InforException {
-		return inforClient.getUserSetupService().login(inforContext);
+	public String login(InforContext inforContext, String useCode) throws InforException {
+		return inforClient.getUserSetupService().login(inforContext, "");
 	}
 
 	@Override

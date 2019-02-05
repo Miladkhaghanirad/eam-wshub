@@ -512,11 +512,13 @@
             </filters>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0">
-            <wsdl-host>cmmsx-test.cern.ch</wsdl-host>
+            <wsdl-host>localhost</wsdl-host>
+            <wsdl-port>8080</wsdl-port>
             <wsdl-secure-port>443</wsdl-secure-port>
-            <wsdl-uri-scheme>https</wsdl-uri-scheme>
+            <wsdl-uri-scheme>http</wsdl-uri-scheme>
             <wsdl-path-rewrite-rule>s/SOAPWS/WSHub/g</wsdl-path-rewrite-rule>
-            <endpoint-config name="Standard-Endpoint-Config"/>
+            <modify-wsdl-address>false</modify-wsdl-address>
+	    <endpoint-config name="Standard-Endpoint-Config"/>
             <endpoint-config name="Recording-Endpoint-Config">
                 <pre-handler-chain name="recording-handlers" protocol-bindings="##SOAP11_HTTP ##SOAP11_HTTP_MTOM ##SOAP12_HTTP ##SOAP12_HTTP_MTOM">
                     <handler name="RecordingHandler" class="org.jboss.ws.common.invocation.RecordingServerHandler"/>
