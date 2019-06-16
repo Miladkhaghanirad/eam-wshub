@@ -11,7 +11,6 @@ The docker image needs to be parametrized with environment variables.
 | ------------- | -----:|---------:|
 | INFOR_WS_URL           | **Yes** |  |
 | INFOR_TENANT         | **Yes** |  |
-| INFOR_ORGANIZATION_CODE         | **Yes** |  |
 
 Please not that for the moment the database connection is not supported and the non-mandatory parameters above won't be considered.
 
@@ -20,7 +19,6 @@ You can for instance store your environment variables in a dedicated .env file:
 ```
 INFOR_WS_URL=<url>
 INFOR_TENANT=<tenant>
-INFOR_ORGANIZATION_CODE=<organization-code>
 ```
 
 
