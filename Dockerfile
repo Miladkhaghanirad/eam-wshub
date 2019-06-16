@@ -8,5 +8,5 @@ ADD docker/sqljdbc4.jar /opt/jboss/wildfly/standalone/deployments/
 ADD wshubear/target/wshub.ear /opt/jboss/wildfly/standalone/deployments/
 ADD docker/standalone.xml /opt/jboss/wildfly/standalone/configuration/
 
-EXPOSE 8080/tcp
+EXPOSE 8082/tcp
 EXPOSE 9090/tcp

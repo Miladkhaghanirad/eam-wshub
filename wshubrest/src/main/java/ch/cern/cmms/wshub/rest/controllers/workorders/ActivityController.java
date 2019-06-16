@@ -24,7 +24,7 @@ public class ActivityController extends WSHubController {
     @Produces("application/json")
     public Response readWorkOrderActivities(@PathParam("number") String workOrderNumber) {
         try {
-            return ok(inforClient.getLaborBookingService().readActivities(authentication.getInforContext(), workOrderNumber));
+            return ok(inforClient.getLaborBookingService().readActivities(authentication.getInforContext(), workOrderNumber, true));
         } catch (InforException e) {
             return badRequest(e);
         } catch(Exception e) {

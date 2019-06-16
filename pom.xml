@@ -34,13 +34,11 @@
 	<url>https://github.com/cern-eam/eam-wshub</url>
 
 	<properties>
+		<ch.cern.eam.eam-wshub-core.version>11.4-29</ch.cern.eam.eam-wshub-core.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<wildfly.port>10780</wildfly.port>
-		<wildfly.hostname>localhost</wildfly.hostname>
-		<wildfly.username>admin</wildfly.username>
 	</properties>
 
 	<licenses>
@@ -104,7 +102,7 @@
 		<dependency>
 			<groupId>ch.cern.eam</groupId>
 			<artifactId>eam-wshub-core</artifactId>
-			<version>11.4-2-SNAPSHOT</version>
+			<version>${ch.cern.eam.eam-wshub-core.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

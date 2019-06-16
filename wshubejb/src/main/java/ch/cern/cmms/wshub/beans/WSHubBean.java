@@ -113,14 +113,14 @@ public class WSHubBean implements WSHub {
 
 	@Override
 	public Activity[] readActivities(InforContext inforContext, String workOrderNumber) throws InforException {
-		return inforClient.getLaborBookingService().readActivities(inforContext, workOrderNumber);
+		return inforClient.getLaborBookingService().readActivities(inforContext, workOrderNumber, true);
 	}
 
 	//
 	// LABOR BOOKING
 	//
 	@Override
-	public LaborBooking[] readBookedLabor(InforContext inforContext, String workOrderNumber) throws InforException {
+	public List<LaborBooking> readBookedLabor(InforContext inforContext, String workOrderNumber) throws InforException {
 		return inforClient.getLaborBookingService().readLaborBookings(inforContext, workOrderNumber);
 	}
 

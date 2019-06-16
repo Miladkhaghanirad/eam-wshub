@@ -513,7 +513,7 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0">
             <wsdl-host>localhost</wsdl-host>
-            <wsdl-port>8080</wsdl-port>
+            <wsdl-port>8082</wsdl-port>
             <wsdl-secure-port>443</wsdl-secure-port>
             <wsdl-uri-scheme>http</wsdl-uri-scheme>
             <wsdl-path-rewrite-rule>s/SOAPWS/WSHub/g</wsdl-path-rewrite-rule>
@@ -545,7 +545,7 @@
         <socket-binding name="management-http" interface="management" port="${jboss.management.http.port:9090}"/>
         <socket-binding name="management-https" interface="management" port="${jboss.management.https.port:9993}"/>
         <socket-binding name="ajp" port="${jboss.ajp.port:10809}"/>
-        <socket-binding name="http" port="${jboss.http.port:8080}"/>
+        <socket-binding name="http" port="${jboss.http.port:8082}"/>
         <socket-binding name="https" port="${jboss.https.port:8443}"/>
         <socket-binding name="iiop" interface="unsecure" port="13528"/>
         <socket-binding name="iiop-ssl" interface="unsecure" port="13529"/>

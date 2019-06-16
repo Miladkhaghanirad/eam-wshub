@@ -130,7 +130,7 @@ public interface WSHub {
 			@WebParam(name = "workOrderNumber") String workOrderNumber)
 			throws InforException;
 
-	LaborBooking[] readBookedLabor(
+	List<LaborBooking> readBookedLabor(
 			@WebParam(name = "inforContext", header = true) InforContext inforContext,
 			@WebParam(name = "workOrderNumber") String workOrderNumber)
 			throws InforException;

@@ -39,12 +39,12 @@
 							"raw": "{\n\"typeCode\": \"CD\",\n\"statusCode\": \"R\",\n\"equipmentCode\": \"112\",\n\"departmentCode\": \"*TEST\",\n\"description\": \"New Desc\",\n\"scheduledStartDate\": \"20-JAN-2019\",\n\"scheduledEndDate\": \"31-JAN-2019\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/workorders",
+							"raw": "http://localhost:8082/RESTWS/REST/workorders",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -80,12 +80,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/workorders/26089735",
+							"raw": "http://localhost:8082/RESTWS/REST/workorders/26089735",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -127,12 +127,12 @@
 							"raw": "{\n\"description\": \"New Desc Updated\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/workorders/26089554",
+							"raw": "http://localhost:8082/RESTWS/REST/workorders/26089554",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -174,12 +174,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/workorders/26089555",
+							"raw": "http://localhost:8082/RESTWS/REST/workorders/26089555",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -226,12 +226,12 @@
 							"raw": "{\n\"activityCode\": \"5\",\n\"tradeCode\": \"PRPT\",\n\"peopleRequired\": \"5\",\n\"estimatedHours\": \"10\",\n\"startDate\": \"SYSDATE\",\n\"endDate\": \"SYSDATE\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/workorders/activities/26089735",
+							"raw": "http://localhost:8082/RESTWS/REST/workorders/activities/26089735",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -277,12 +277,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/workorders/activities/26089735",
+							"raw": "http://localhost:8082/RESTWS/REST/workorders/activities/26089735",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -325,12 +325,12 @@
 							"raw": "{\n\"activityCode\": \"5\",\n\"estimatedHours\": \"15\",\n\"startDate\": \"SYSDATE\",\n\"endDate\": \"SYSDATE\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/workorders/activities/26089735",
+							"raw": "http://localhost:8082/RESTWS/REST/workorders/activities/26089735",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -378,12 +378,12 @@
 							"raw": "{\n\"activityCode\": \"5\",\n\"hoursWorked\": \"3\",\n\"typeOfHours\": \"N\",\n\"dateWorked\": \"SYSDATE\",\n\"tradeCode\": \"PRPT\", \n\"departmentCode\": \"*TEST\",\n\"employeeCode\": \"109615\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/workorders/laborbookings/26089735",
+							"raw": "http://localhost:8082/RESTWS/REST/workorders/laborbookings/26089735",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -429,12 +429,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/workorders/laborbookings/26089735",
+							"raw": "http://localhost:8082/RESTWS/REST/workorders/laborbookings/26089735",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -482,12 +482,12 @@
 							"raw": "{\n\"typeCode\": \"*\",\n\"text\": \"Test Comment\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/comments/EVNT/26089555",
+							"raw": "http://localhost:8082/RESTWS/REST/comments/EVNT/26089555",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -533,12 +533,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/comments/EVNT/26089555",
+							"raw": "http://localhost:8082/RESTWS/REST/comments/EVNT/26089555",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -581,12 +581,12 @@
 							"raw": "{\n\"text\": \"Updated Comment\",\n\"lineNumber\": \"5\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/comments/EVNT/26089555",
+							"raw": "http://localhost:8082/RESTWS/REST/comments/EVNT/26089555",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -634,12 +634,12 @@
 							"raw": "{\n\"code\": \"EQUIPMENT001\",\n\"description\": \"EQUIPMENT001 Description\",\n\"departmentCode\": \"*TEST\",\n\"statusCode\": \"I\",\n\"typeCode\": \"A\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -683,12 +683,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/EQUIPMENT001",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/EQUIPMENT001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -730,12 +730,12 @@
 							"raw": "{\n\"description\": \"EQUIPMENT001 Description Updated\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/EQUIPMENT001",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/EQUIPMENT001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -777,12 +777,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/EQUIPMENT001",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/EQUIPMENT001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -824,12 +824,12 @@
 							"raw": "{\n\"code\": \"ASSET001\",\n\"description\": \"ASSET001 Description\",\n\"departmentCode\": \"*TEST\",\n\"statusCode\": \"I\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/assets",
+							"raw": "http://localhost:8082/RESTWS/REST/assets",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -873,12 +873,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/assets/ASSET001",
+							"raw": "http://localhost:8082/RESTWS/REST/assets/ASSET001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -920,12 +920,12 @@
 							"raw": "{\n\"description\": \"ASSET001 Description Updated\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/assets/ASSET001",
+							"raw": "http://localhost:8082/RESTWS/REST/assets/ASSET001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -967,12 +967,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/assets/ASSET001",
+							"raw": "http://localhost:8082/RESTWS/REST/assets/ASSET001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1014,12 +1014,12 @@
 							"raw": "{\n\"code\": \"POSITION001\",\n\"description\": \"POSITION001 Description\",\n\"departmentCode\": \"*TEST\",\n\"statusCode\": \"I\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/positions",
+							"raw": "http://localhost:8082/RESTWS/REST/positions",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1063,12 +1063,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/positions/POSITION001",
+							"raw": "http://localhost:8082/RESTWS/REST/positions/POSITION001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1110,12 +1110,12 @@
 							"raw": "{\n\"description\": \"POSITION001 Description Updated\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/positions/POSITION001",
+							"raw": "http://localhost:8082/RESTWS/REST/positions/POSITION001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1157,12 +1157,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/positions/POSITION001",
+							"raw": "http://localhost:8082/RESTWS/REST/positions/POSITION001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1204,12 +1204,12 @@
 							"raw": "{\n\"code\": \"SYSTEM001\",\n\"description\": \"SYSTEM001 Description\",\n\"departmentCode\": \"*TEST\",\n\"statusCode\": \"I\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/systems",
+							"raw": "http://localhost:8082/RESTWS/REST/systems",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1253,12 +1253,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/systems/SYSTEM001",
+							"raw": "http://localhost:8082/RESTWS/REST/systems/SYSTEM001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1300,12 +1300,12 @@
 							"raw": "{\n\"description\": \"SYSTEM001 Description Updated\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/systems/SYSTEM001",
+							"raw": "http://localhost:8082/RESTWS/REST/systems/SYSTEM001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1347,12 +1347,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/systems/SYSTEM001",
+							"raw": "http://localhost:8082/RESTWS/REST/systems/SYSTEM001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1399,12 +1399,12 @@
 							"raw": "{\n\t\"equipmentCode\": \"ASSET001\",\n\t\"pmCode\": \"GP-PMS-001\",\n\t\"departmentCode\": \"*TEST\",\n\t\"periodUOM\": \"Y\",\n\t\"periodLength\": \"3\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/pmschedules",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/pmschedules",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1446,12 +1446,12 @@
 							"raw": "{\n\t\"pmCode\": \"GP-PMS-001\",\n\t\"sequenceNumber\": \"143210\",\n\t\"revision\": \"0\",\n\t\"periodUOM\": \"M\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/pmschedules/",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/pmschedules/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1494,12 +1494,12 @@
 							"raw": "{\t\n\t\"pmCode\": \"GP-PMS-001\",\n\t\"sequenceNumber\": \"143210\",\n\t\"revision\": \"0\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/pmschedules/",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/pmschedules/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1547,12 +1547,12 @@
 							"raw": "{\n\"equipmentCode\": \"ASSET001\",\n\"warrantyCode\": \"GS-EFM\",\n\"coverageType\": \"CALENDAR\",\n\"duration\": 5\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/warrantiescoverage",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/warrantiescoverage",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1594,12 +1594,12 @@
 							"raw": "{\n\"sequenceNumber\": \"79201\",\n\"active\": \"trUe\",\n\"duration\": \"6\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/warrantiescoverage",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/warrantiescoverage",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1646,12 +1646,12 @@
 							"raw": "{\n\"childCode\": \"SYSTEM001\",\n\"newParentCode\": \"SYSTEM002\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/structure",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/structure",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1693,12 +1693,12 @@
 							"raw": "{\n\"childCode\": \"SYSTEM001\",\n\"newParentCode\": \"SYSTEM002\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/structure",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/structure",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1740,12 +1740,12 @@
 							"raw": "{\n\"childCode\": \"SYSTEM001\",\n\"newParentCode\": \"SYSTEM002\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/structure",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/structure",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1792,12 +1792,12 @@
 							"raw": "{\n\"equipmentCode\": \"ASSET001\",\n\"typeCode\": \"LRS\",\n\"fromPoint\": \"20\",\n\"toPoint\": \"25\",\n\"description\": \"Linear Reference Desc\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/linearreferences",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/linearreferences",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1839,12 +1839,12 @@
 							"raw": "{\n\"fromPoint\": \"20\",\n\"toPoint\": \"199.1234\",\n\"description\": \"Linear Reference Desc Updated\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/linearreferences/10004",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/linearreferences/10004",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1887,12 +1887,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/equipment/linearreferences/10004",
+							"raw": "http://localhost:8082/RESTWS/REST/equipment/linearreferences/10004",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1940,12 +1940,12 @@
 							"raw": "{\n\"code\": \"PART001\",\n\"description\": \"PART001 Description\",\n\"uom\": \"pc\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/parts",
+							"raw": "http://localhost:8082/RESTWS/REST/parts",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -1989,12 +1989,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001",
+							"raw": "http://localhost:8082/RESTWS/REST/parts/PART001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -2036,12 +2036,12 @@
 							"raw": "{\n\"description\": \"PART001 Description Updated\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001",
+							"raw": "http://localhost:8082/RESTWS/REST/parts/PART001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -2083,12 +2083,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001",
+							"raw": "http://localhost:8082/RESTWS/REST/parts/PART001",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -2135,12 +2135,12 @@
 							"raw": "{\n\t\"manufacturerCode\": \"CERN\",\n\t\"outOfService\": \"+\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001/manufacturers",
+							"raw": "http://localhost:8082/RESTWS/REST/parts/PART001/manufacturers",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -2183,12 +2183,12 @@
 							"raw": "{\n\t\"outOfService\": \"false\",\n\t\"primary\": \"+\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001/manufacturers/CERN",
+							"raw": "http://localhost:8082/RESTWS/REST/parts/PART001/manufacturers/CERN",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
@@ -2232,12 +2232,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:8080/RESTWS/REST/parts/PART001/manufacturers/CERN",
+							"raw": "http://localhost:8082/RESTWS/REST/parts/PART001/manufacturers/CERN",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "8082",
 							"path": [
 								"RESTWS",
 								"REST",
