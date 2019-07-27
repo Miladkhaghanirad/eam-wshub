@@ -34,7 +34,7 @@
 	<url>https://github.com/cern-eam/eam-wshub</url>
 
 	<properties>
-		<ch.cern.eam.eam-wshub-core.version>11.4-29</ch.cern.eam.eam-wshub-core.version>
+		<ch.cern.eam.eam-wshub-core.version>11.4-37</ch.cern.eam.eam-wshub-core.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
